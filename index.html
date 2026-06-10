@@ -139,6 +139,21 @@
       -webkit-backdrop-filter: blur(20px);
     }
 
+    /* ── STATUS BAR COVER (iOS) ─────────────────────── */
+    #sb-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: env(safe-area-inset-top);
+      background: #080808;
+      z-index: 101;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    #sb-cover.visible { opacity: 1; }
+
     .nav-logo {
       font-family: var(--font-d);
       font-size: 1.2rem;
@@ -664,6 +679,7 @@
   </style>
 </head>
 <body>
+  <div id="sb-cover"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>
@@ -834,9 +850,12 @@
         : tryPlay();
     }
 
-    const navbar = document.getElementById('navbar');
+    const navbar  = document.getElementById('navbar');
+    const sbCover = document.getElementById('sb-cover');
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 30);
+      const isScrolled = window.scrollY > 30;
+      navbar.classList.toggle('scrolled', isScrolled);
+      sbCover.classList.toggle('visible', isScrolled);
     });
 
     const hamburger   = document.getElementById('hamburger');
