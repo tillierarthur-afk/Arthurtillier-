@@ -88,7 +88,7 @@
     ]
   }
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,7 +129,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem var(--pad);
+      padding: calc(1.8rem + env(safe-area-inset-top)) var(--pad) 1.8rem;
       transition: background 0.5s var(--ease), backdrop-filter 0.5s;
     }
 
