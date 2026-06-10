@@ -38,7 +38,7 @@
   </script>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/global.css" />
@@ -77,7 +77,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem var(--pad);
+      padding: calc(1.8rem + env(safe-area-inset-top)) var(--pad) 1.8rem;
       background: rgba(8,8,8,0.93);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);

@@ -47,7 +47,7 @@
   </script>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
   <link rel="stylesheet" href="css/global.css" />
@@ -83,7 +83,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.8rem 2.5rem;
+      padding: calc(1.8rem + env(safe-area-inset-top)) 2.5rem 1.8rem;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
       transition: background 0.4s, padding 0.3s;
       pointer-events: none;
