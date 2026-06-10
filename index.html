@@ -21,8 +21,6 @@
   <meta name="twitter:image" content="https://arthurtillier.com/images/about/portrait.jpg" />
   <meta name="twitter:creator" content="@arthurtillier" />
   <meta name="author" content="Arthur Tillier" />
-  <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#080808" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,7 +87,7 @@
     ]
   }
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,20 +128,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: max(1.8rem, env(safe-area-inset-top)) var(--pad) 1.8rem;
+      padding: 1.8rem var(--pad);
       transition: background 0.5s var(--ease), backdrop-filter 0.5s;
-    }
-
-    /* Bande noire permanente derrière la barre de statut iOS */
-    nav::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: env(safe-area-inset-top);
-      background: #080808;
-      transform: translateZ(0);
     }
 
     nav.scrolled {
@@ -151,9 +137,6 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
-
-    @media (min-width: 901px) { #ios-sb { display: none; } }
-
 
     .nav-logo {
       font-family: var(--font-d);
@@ -245,12 +228,11 @@
       display: flex;
       align-items: flex-end;
       padding: 0 var(--pad) clamp(3rem, 7vh, 7rem);
-      background: #080808;
     }
 
     .hero-video {
       position: absolute;
-      inset: env(safe-area-inset-top) 0 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -681,8 +663,6 @@
   </style>
 </head>
 <body>
-
-  <div id="ios-sb" style="position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,44px);background:#080808;z-index:2147483647;pointer-events:none;transform:translateZ(0)"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>
