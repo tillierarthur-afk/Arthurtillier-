@@ -480,9 +480,22 @@
     @media (max-width: 480px) {
       .locations-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ── STATUS BAR COVER (iOS) ─────────────────────── */
+    #sb-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: env(safe-area-inset-top);
+      background: #080808;
+      z-index: 9995;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div id="sb-cover"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>

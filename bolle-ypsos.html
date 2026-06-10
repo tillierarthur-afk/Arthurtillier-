@@ -422,9 +422,22 @@
       .grille-photos { grid-template-columns: 1fr; }
       .photo-item.large { grid-column: span 1; aspect-ratio: 4/3; }
     }
+
+    /* ── STATUS BAR COVER (iOS) ─────────────────────── */
+    #sb-cover {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: env(safe-area-inset-top);
+      background: #080808;
+      z-index: 9995;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div id="sb-cover"></div>
 
   <!-- NAV INTELLIGENTE : s'adapte selon la page précédente -->
   <nav class="nav-projet" id="navProjet">
