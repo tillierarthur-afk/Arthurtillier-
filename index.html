@@ -148,11 +148,8 @@
       height: env(safe-area-inset-top);
       background: #080808;
       z-index: 101;
-      opacity: 0;
-      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
     }
-    #sb-cover.visible { opacity: 1; }
 
     .nav-logo {
       font-family: var(--font-d);
@@ -850,12 +847,9 @@
         : tryPlay();
     }
 
-    const navbar  = document.getElementById('navbar');
-    const sbCover = document.getElementById('sb-cover');
+    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      const isScrolled = window.scrollY > 30;
-      navbar.classList.toggle('scrolled', isScrolled);
-      sbCover.classList.toggle('visible', isScrolled);
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
     });
 
     const hamburger   = document.getElementById('hamburger');
