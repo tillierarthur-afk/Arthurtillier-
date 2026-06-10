@@ -152,6 +152,8 @@
       -webkit-backdrop-filter: blur(20px);
     }
 
+    @media (min-width: 901px) { #ios-sb { display: none; } }
+
 
     .nav-logo {
       font-family: var(--font-d);
@@ -679,6 +681,8 @@
   </style>
 </head>
 <body>
+
+  <div id="ios-sb" style="position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,44px);background:#080808;z-index:2147483647;pointer-events:none;transform:translateZ(0)"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>
