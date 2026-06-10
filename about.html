@@ -21,6 +21,8 @@
   <meta name="twitter:image" content="https://arthurtillier.com/images/about/portrait.jpg" />
   <meta name="twitter:creator" content="@arthurtillier" />
   <meta name="author" content="Arthur Tillier" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#080808" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,7 +90,7 @@
     ]
   }
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +130,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: calc(1.8rem + env(safe-area-inset-top)) var(--pad) 1.8rem;
+      padding: 1.8rem var(--pad);
       background: rgba(8,8,8,0.93);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -481,21 +483,9 @@
       .locations-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ── STATUS BAR COVER (iOS) ─────────────────────── */
-    #sb-cover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: env(safe-area-inset-top);
-      background: #080808;
-      z-index: 9995;
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
-  <div id="sb-cover"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>

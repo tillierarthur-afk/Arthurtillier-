@@ -6,7 +6,7 @@
   <meta name="description" content="Legal notice for arthurtillier.com — Arthur Tillier, freelance Director & DOP." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://arthurtillier.com/legal-notice.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: calc(1.8rem + env(safe-area-inset-top)) var(--pad) 1.8rem;
+      padding: 1.8rem var(--pad);
       background: rgba(8,8,8,0.93);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -222,21 +222,11 @@
       .mobile-menu { display: flex; }
     }
 
-    /* ── STATUS BAR COVER (iOS) ─────────────────────── */
-    #sb-cover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: env(safe-area-inset-top);
-      background: #080808;
-      z-index: 9995;
-      pointer-events: none;
-    }
   </style>
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#080808" />
 </head>
 <body>
-  <div id="sb-cover"></div>
 
   <!-- ── NAV ── -->
   <nav>
