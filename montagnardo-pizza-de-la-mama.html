@@ -41,7 +41,7 @@
   </script>
   <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
   <link rel="stylesheet" href="css/global.css" />
@@ -400,6 +400,7 @@
     ============================================ */
     @media (max-width: 768px) {
       .nav-projet { padding: 0.5rem 1.5rem; }
+      .nav-projet.scrolled { padding-top: calc(env(safe-area-inset-top, 0px) + 0.5rem); }
 
       .projet-header {
         grid-template-columns: 1fr;
