@@ -1,5 +1,3 @@
 .DS_Store
 .claude/
 
-# Large videos excluded from git (host separately)
-videos/BEST_SKI_FEMALE.mp4
