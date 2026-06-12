@@ -129,8 +129,16 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.8rem var(--pad);
-      transition: background 0.5s var(--ease), backdrop-filter 0.5s;
+      transition: background 0.5s var(--ease), backdrop-filter 0.5s, transform 0.35s var(--ease);
     }
+
+    nav.scrolled {
+      background: rgba(8,8,8,0.93);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    nav.nav-hidden { transform: translateY(-100%); }
 
     .nav-logo {
       font-family: var(--font-d);
@@ -827,6 +835,22 @@
         ? document.addEventListener('DOMContentLoaded', tryPlay)
         : tryPlay();
     }
+
+    const navbar = document.getElementById('navbar');
+    let lastScrollY = 0, upDelta = 0;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (window.innerWidth > 900) {
+        navbar.classList.toggle('scrolled', y > 30);
+        navbar.classList.remove('nav-hidden');
+      } else {
+        const diff = y - lastScrollY;
+        if (diff > 0 && y > 60) { navbar.classList.add('nav-hidden'); upDelta = 0; }
+        else if (diff < 0) { upDelta += Math.abs(diff); if (upDelta >= 10) navbar.classList.remove('nav-hidden'); }
+        if (y <= 0) navbar.classList.remove('nav-hidden');
+      }
+      lastScrollY = y;
+    });
 
     const hamburger   = document.getElementById('hamburger');
     const mobileMenu  = document.getElementById('mobileMenu');

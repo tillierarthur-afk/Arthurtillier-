@@ -79,9 +79,17 @@
       align-items: center;
       padding: 1.8rem 2.5rem;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
-      transition: background 0.4s, padding 0.3s;
+      transition: background 0.4s, padding 0.3s, transform 0.35s ease;
       pointer-events: none;
     }
+
+    .nav-projet.scrolled {
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-projet.nav-hidden { transform: translateY(-100%); }
 
     .btn-nav {
       display: flex;
@@ -674,9 +682,21 @@
       btnPortfolio.style.display = 'none';
     }
 
-        // Nav devient opaque au scroll
+        // Nav scroll behaviour
     const navProjet = document.getElementById('navProjet');
+    let lastScrollY = 0, upDelta = 0;
     window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (window.innerWidth > 900) {
+        navProjet.classList.toggle('scrolled', y > 30);
+        navProjet.classList.remove('nav-hidden');
+      } else {
+        const diff = y - lastScrollY;
+        if (diff > 0 && y > 60) { navProjet.classList.add('nav-hidden'); upDelta = 0; }
+        else if (diff < 0) { upDelta += Math.abs(diff); if (upDelta >= 10) navProjet.classList.remove('nav-hidden'); }
+        if (y <= 0) navProjet.classList.remove('nav-hidden');
+      }
+      lastScrollY = y;
     });
 
     // Apparition au scroll
