@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Swatch Nines — Event Film | Arthur Tillier, Camera Operator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  <!-- Plausible Analytics -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>  <!-- Plausible Analytics -->
   <script defer data-domain="arthurtillier.com" src="https://plausible.io/js/script.js"></script>
   <meta name="description" content="Event film for Swatch Nines ski, snowboard and bike competition. Camera operator: Arthur Tillier — freelance DOP based in the Alps." />
   <meta name="robots" content="index, follow" />
@@ -398,7 +398,7 @@
        RESPONSIVE
     ============================================ */
     @media (max-width: 768px) {
-      .nav-projet { padding: 0.5rem 1.5rem; }
+      .nav-projet { padding: calc(env(safe-area-inset-top, 0px) + 0.5rem) 1.5rem 0.5rem; }
 
       .projet-header {
         grid-template-columns: 1fr;
