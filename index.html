@@ -844,6 +844,7 @@
         navbar.classList.toggle('scrolled', y > 30);
         navbar.classList.remove('nav-hidden');
       } else {
+        navbar.classList.toggle('scrolled', y > 30);
         const diff = y - lastScrollY;
         if (diff > 0 && y > 60) { navbar.classList.add('nav-hidden'); upDelta = 0; }
         else if (diff < 0) { upDelta += Math.abs(diff); if (upDelta >= 10) navbar.classList.remove('nav-hidden'); }
