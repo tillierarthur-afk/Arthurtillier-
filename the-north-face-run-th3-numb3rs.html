@@ -405,8 +405,7 @@
        RESPONSIVE
     ============================================ */
     @media (max-width: 768px) {
-      .nav-projet { padding: 0.5rem 1.5rem; }
-      .nav-projet.scrolled { padding-top: calc(env(safe-area-inset-top, 0px) + 0.5rem); }
+      .nav-projet { padding: calc(env(safe-area-inset-top, 0px) + 0.5rem) 1.5rem 0.5rem; }
 
       .projet-header {
         grid-template-columns: 1fr;
@@ -430,18 +429,6 @@
       .grille-photos { grid-template-columns: 1fr; }
       .photo-item.large { grid-column: span 1; aspect-ratio: 4/3; }
     }
-
-    #sb-cover {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: env(safe-area-inset-top, 0px);
-      background: #080808;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-    #sb-cover.visible { opacity: 1; }
   </style>
 </head>
 <body>
@@ -714,20 +701,18 @@
 
         // Nav scroll behaviour
     const navProjet = document.getElementById('navProjet');
-    const sbCover = document.getElementById('sb-cover');
     let lastScrollY = 0, upDelta = 0;
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       if (window.innerWidth > 900) {
         navProjet.classList.toggle('scrolled', y > 30);
         navProjet.classList.remove('nav-hidden');
-        sbCover.classList.remove('visible');
       } else {
         navProjet.classList.toggle('scrolled', y > 30);
         const diff = y - lastScrollY;
-        if (diff > 0 && y > 60) { navProjet.classList.add('nav-hidden'); sbCover.classList.remove('visible'); upDelta = 0; }
-        else if (diff < 0) { upDelta += Math.abs(diff); if (upDelta >= 10) { navProjet.classList.remove('nav-hidden'); if (y > 30) sbCover.classList.add('visible'); } }
-        if (y <= 0) { navProjet.classList.remove('nav-hidden'); sbCover.classList.remove('visible'); }
+        if (diff > 0 && y > 60) { navProjet.classList.add('nav-hidden'); upDelta = 0; }
+        else if (diff < 0) { upDelta += Math.abs(diff); if (upDelta >= 10) { navProjet.classList.remove('nav-hidden'); if (y > 30) } }
+        if (y <= 0) { navProjet.classList.remove('nav-hidden'); }
       }
       lastScrollY = y;
     });
