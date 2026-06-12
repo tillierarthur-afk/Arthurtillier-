@@ -132,12 +132,6 @@
       transition: background 0.5s var(--ease), backdrop-filter 0.5s;
     }
 
-    nav.scrolled {
-      background: rgba(8,8,8,0.93);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-
     .nav-logo {
       font-family: var(--font-d);
       font-size: 1.2rem;
@@ -833,11 +827,6 @@
         ? document.addEventListener('DOMContentLoaded', tryPlay)
         : tryPlay();
     }
-
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 30);
-    });
 
     const hamburger   = document.getElementById('hamburger');
     const mobileMenu  = document.getElementById('mobileMenu');

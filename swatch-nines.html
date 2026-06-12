@@ -83,12 +83,6 @@
       pointer-events: none;
     }
 
-    .nav-projet.scrolled {
-      background: rgba(14,14,14,0.92);
-      backdrop-filter: blur(12px);
-      padding: 1.2rem 2.5rem;
-    }
-
     .btn-nav {
       display: flex;
       align-items: center;
@@ -398,7 +392,6 @@
     ============================================ */
     @media (max-width: 768px) {
       .nav-projet { padding: 1.4rem 1.5rem; }
-      .nav-projet.scrolled { padding: 1rem 1.5rem; }
 
       .projet-header {
         grid-template-columns: 1fr;
@@ -659,7 +652,6 @@
         // Nav devient opaque au scroll
     const navProjet = document.getElementById('navProjet');
     window.addEventListener('scroll', () => {
-      navProjet.classList.toggle('scrolled', window.scrollY > 80);
     });
 
     // Apparition au scroll
