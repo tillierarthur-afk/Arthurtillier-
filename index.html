@@ -665,9 +665,23 @@
       footer { flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
     }
+
+    #sb-cover {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: env(safe-area-inset-top, 0px);
+      background: #080808;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    #sb-cover.visible { opacity: 1; }
   </style>
 </head>
 <body>
+
+  <div id="sb-cover"></div>
 
   <nav id="navbar">
     <a href="index.html" class="nav-logo">Arthur Tillier</a>
@@ -839,7 +853,13 @@
     }
 
     const navbar = document.getElementById('navbar');
+    const sbCover = document.getElementById('sb-cover');
     let lastScrollY = 0, upDelta = 0;
+    function updateSbCover() {
+      const menuOpen = hamburger && hamburger.classList.contains('open');
+      const navVisible = !navbar.classList.contains('nav-hidden');
+      sbCover.classList.toggle('visible', (window.scrollY > 30 && navVisible && window.innerWidth <= 900) || menuOpen);
+    }
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       if (window.innerWidth > 900) {
@@ -853,6 +873,7 @@
         if (y <= 0) navbar.classList.remove('nav-hidden');
       }
       lastScrollY = y;
+      updateSbCover();
     });
 
     const hamburger   = document.getElementById('hamburger');
@@ -864,6 +885,7 @@
       mobileMenu.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
+      updateSbCover();
     }
 
     hamburger.addEventListener('click', () => toggleMenu());
